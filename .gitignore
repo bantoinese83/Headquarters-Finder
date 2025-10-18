@@ -191,3 +191,9 @@ data/gold_standard.csv
 HeadquartersFinder_Distribution/
 *.exe
 *.app
+
+# Security - Sensitive configuration files
+.env
+headquarters_finder/config.ini
+config.ini
+*.env.local

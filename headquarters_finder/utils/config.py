@@ -16,6 +16,10 @@ from typing import Dict, Any, Optional, Union
 from pathlib import Path
 from dataclasses import dataclass
 from enum import Enum
+from dotenv import load_dotenv
+
+# Load environment variables from .env file if it exists
+load_dotenv()
 
 
 class ConfigSection(Enum):
@@ -138,8 +142,11 @@ class Config:
         Returns:
             APIConfig object containing API configuration
         """
+        # Check environment variable first, then fallback to config file
+        api_key = os.getenv('GEMINI_API_KEY') or self.config.get('API', 'api_key')
+
         return APIConfig(
-            api_key=self.config.get('API', 'api_key'),
+            api_key=api_key,
             model_name=self.config.get('API', 'model_name'),
             temperature=self.config.getfloat('API', 'temperature'),
             max_output_tokens=self.config.getint('API', 'max_output_tokens')
@@ -190,9 +197,9 @@ class Config:
             True if configuration is valid, False otherwise
         """
         try:
-            # Check if API key is set
-            api_key = self.config.get('API', 'api_key')
-            if not api_key or api_key == 'YOUR_GEMINI_API_KEY_HERE':
+            # Check if API key is set (check both config file and environment variable)
+            api_key = os.getenv('GEMINI_API_KEY') or self.config.get('API', 'api_key')
+            if not api_key or api_key in ['YOUR_GEMINI_API_KEY_HERE', '']:
                 return False
             
             # Check if required files exist (only check if they're not test files)

@@ -46,13 +46,34 @@
 
 1. **Download** `HeadquartersFinder.exe` from the releases
 2. **Extract** to a folder on your desktop
-3. **Configure** your API key in `config.ini`:
-   ```ini
-   [API]
-   api_key = YOUR_GEMINI_API_KEY_HERE
-   ```
+3. **Set up environment variables** (see below)
 4. **Add** your CSV file to the same folder
 5. **Double-click** `HeadquartersFinder.exe` to run
+
+#### Secure API Key Setup
+
+**⚠️ IMPORTANT: Never commit API keys to version control!**
+
+**Option A: Environment Variables (Recommended)**
+```bash
+# Create .env file
+echo "GEMINI_API_KEY=your_api_key_here" > .env
+```
+
+**Option B: System Environment Variables**
+```bash
+# Windows PowerShell
+$env:GEMINI_API_KEY = "your_api_key_here"
+
+# Windows Command Prompt
+set GEMINI_API_KEY=your_api_key_here
+```
+
+**Option C: Config File (Development Only)**
+```ini
+[API]
+api_key = YOUR_GEMINI_API_KEY_HERE  # Replace with actual key
+```
 
 #### Option 2: Python Installation
 
@@ -91,9 +112,13 @@ pip install -r requirements.txt
 # Install development dependencies
 pip install -r requirements-test.txt
 
-# Configure your API key
-cp headquarters_finder/config.ini.example headquarters_finder/config.ini
-# Edit config.ini and add your Gemini API key
+# Set up environment variables (recommended)
+cp .env.example .env
+# Edit .env and add your Gemini API key:
+# GEMINI_API_KEY=your_actual_api_key_here
+
+# Alternative: Set system environment variable
+# export GEMINI_API_KEY=your_actual_api_key_here
 
 # Run tests to verify everything works
 python -m pytest tests/ -v
