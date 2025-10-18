@@ -121,9 +121,10 @@ class Config:
         
         # Validate API configuration
         try:
-            api_key = self.config.get(ConfigSection.API.value, 'api_key')
-            if not api_key or api_key == 'YOUR_GEMINI_API_KEY_HERE':
-                raise ValueError("API key not set in configuration")
+            # Check environment variable first, then config file
+            api_key = os.getenv('GEMINI_API_KEY') or self.config.get(ConfigSection.API.value, 'api_key')
+            if not api_key or api_key in ['YOUR_GEMINI_API_KEY_HERE', '']:
+                raise ValueError("API key not set in configuration or environment variables")
             
             temperature = self.config.getfloat(ConfigSection.API.value, 'temperature')
             if not 0.0 <= temperature <= 1.0:
