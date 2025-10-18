@@ -1,0 +1,86 @@
+# Testing requirements for Headquarters Finder
+
+# Core testing framework
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-html>=3.0.0
+pytest-xdist>=3.0.0
+pytest-mock>=3.10.0
+pytest-timeout>=2.1.0
+pytest-benchmark>=4.0.0
+pytest-clarity>=1.0.0
+pytest-sugar>=0.9.7
+pytest-json-report>=1.5.0
+pytest-json-report-html>=0.3.0
+
+# Coverage tools
+coverage>=7.0.0
+coverage[toml]>=7.0.0
+
+# Mocking and testing utilities
+mock>=5.0.0
+responses>=0.23.0
+freezegun>=1.2.0
+factory-boy>=3.2.0
+faker>=18.0.0
+
+# Performance testing
+memory-profiler>=0.60.0
+psutil>=5.9.0
+pytest-benchmark>=4.0.0
+
+# Security testing
+bandit>=1.7.0
+safety>=2.3.0
+
+# Code quality
+flake8>=6.0.0
+black>=23.0.0
+isort>=5.12.0
+mypy>=1.0.0
+pylint>=2.17.0
+
+# Documentation testing
+sphinx>=6.0.0
+sphinx-rtd-theme>=1.2.0
+sphinx-autodoc-typehints>=1.23.0
+
+# Data testing
+hypothesis>=6.70.0
+pandas-testing>=0.1.0
+
+# API testing
+httpx>=0.24.0
+requests-mock>=1.10.0
+
+# File system testing
+pyfakefs>=5.0.0
+
+# Database testing
+pytest-postgresql>=5.0.0
+pytest-mysql>=2.0.0
+
+# Async testing
+pytest-asyncio>=0.21.0
+pytest-trio>=0.7.0
+
+# GUI testing
+pytest-qt>=4.2.0
+
+# Load testing
+locust>=2.15.0
+
+# Monitoring
+pytest-monitor>=1.0.0
+pytest-profiling>=1.7.0
+
+# Reporting
+allure-pytest>=2.12.0
+pytest-html>=3.0.0
+pytest-json-report>=1.5.0
+
+# Utilities
+click>=8.1.0
+rich>=13.0.0
+tqdm>=4.65.0
+colorama>=0.4.6

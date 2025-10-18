@@ -1,0 +1,2 @@
+Payee Name of Record,Processed Address,Gold Standard Address,Normalized Processed Address,Normalized Gold Standard Address,Is Match,Similarity Score
+Google Inc.,Address A,Address B,address a,address b,True,0.8888888888888888
